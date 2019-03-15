@@ -44,21 +44,3 @@ RESOURCES += \
 
 
 DISTFILES +=
-
-# build dir
-#BuildDir = $$PWD/../build
-
-#CONFIG(debug, debug|release) {
-#    DESTDIR = $$PWD/$$BuildDir/debug/bin
-#    OBJECTS_DIR = $$PWD/$$BuildDir/debug/$$TARGET/.obj
-#    MOC_DIR = $$PWD/$$BuildDir/debug/$$TARGET/.moc
-#    RCC_DIR = $$PWD/$$BuildDir/debug/$$TARGET/.rcc
-#    UI_DIR = $$PWD/$$BuildDir/debug/$$TARGET/.ui
-#} else {
-#    DESTDIR = $$PWD/$$BuildDir/release/bin
-#    OBJECTS_DIR = $$PWD/$$BuildDir/release/$$TARGET/.obj
-#    MOC_DIR = $$PWD/$$BuildDir/release/$$TARGET/.moc
-#    RCC_DIR = $$PWD/$$BuildDir/release/$$TARGET/.rcc
-#    UI_DIR = $$PWD/$$BuildDir/release/$$TARGET/.ui
-#}
-
