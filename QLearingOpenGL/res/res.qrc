@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>hellotriangle.frag</file>
         <file>hellotriangle.vert</file>
+        <file>img/a.jpg</file>
+        <file>hellotexture.frag</file>
+        <file>hellotexture.vert</file>
     </qresource>
 </RCC>
