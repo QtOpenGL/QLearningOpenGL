@@ -40,6 +40,7 @@ private:
     QPoint m_LastMousePos;
     QList<int> m_pressedKeys;
     QOpenGLTexture* m_texture;
+    QImage m_img;
 };
 
 #endif // WIDGET_H

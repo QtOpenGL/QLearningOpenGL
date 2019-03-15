@@ -36,8 +36,8 @@ void Widget::initializeGL()
     m_vertextAttr = m_shaderProgram->attributeLocation("vertex");
 
 
-    QImage img(":/img/a.jpg");
-    m_texture = new QOpenGLTexture(img.mirrored());
+    m_img = QImage(":/img/a.jpg");
+    m_texture = new QOpenGLTexture(m_img.mirrored());
 //    m_shaderProgram->setUniformValue(m_textureUniform, 0);
 }
 
@@ -45,15 +45,17 @@ void Widget::paintGL()
 {
     glViewport(0, 0, width(), height());
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0, 0, 0, 1);
+    glClearColor(0.05f, 0.06f, 0.07f, 1);
     m_shaderProgram->bind();
+
+    float rat = m_img.size().height() * 1.0f / m_img.size().width();
 
     // vertex data
     GLfloat vertexes[] = {
-        -1, 1,
-        1, 1,
-        1, -1,
-        -1, -1
+        -1, rat,
+        1, rat,
+        1, -rat,
+        -1, -rat
     };
 
     // color data
@@ -74,6 +76,7 @@ void Widget::paintGL()
     glEnableVertexAttribArray(GLuint(m_vertextAttr));
     glEnableVertexAttribArray(GLuint(m_texCoordAttr));
 
+    m_texture->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
     m_texture->bind();
 
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
