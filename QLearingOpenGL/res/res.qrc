@@ -5,5 +5,7 @@
         <file>img/a.jpg</file>
         <file>hellotexture.frag</file>
         <file>hellotexture.vert</file>
+        <file>basicllighting/diffuse.frag</file>
+        <file>basicllighting/diffuse.vert</file>
     </qresource>
 </RCC>
