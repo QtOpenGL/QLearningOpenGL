@@ -7,5 +7,7 @@
         <file>hellotexture.vert</file>
         <file>basicllighting/diffuse.frag</file>
         <file>basicllighting/diffuse.vert</file>
+        <file>getstarted/cube.frag</file>
+        <file>getstarted/cube.vert</file>
     </qresource>
 </RCC>

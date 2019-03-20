@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     HelloTriangle \
-    Hellotexture
+    Hellotexture \
+    Cube

@@ -37,9 +37,8 @@ void Widget::initializeGL()
 
 void Widget::paintGL()
 {
-    glViewport(0, 0, width(), height());
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0, 0, 0, 1);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     m_shaderProgram->bind();
 
     // vertex data
@@ -75,6 +74,7 @@ void Widget::paintGL()
 
 void Widget::resizeGL(int w, int h)
 {
+    glViewport(0, 0, w, h);
     m_projective = QMatrix4x4();
     m_projective.perspective(60, float(w * 1.0 / h), 0, 1000.0);
     m_shaderProgram->setUniformValue(m_projectiveUniform, m_projective);

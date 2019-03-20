@@ -11,7 +11,7 @@ Widget::Widget(QWidget *parent)
     m_view.translate(0, 0, -2);
     m_camera = new Camera(this, QVector3D(0, 0, 3));
     m_camera->setMovementSpeed(2);
-    setUpdateBehavior(QOpenGLWidget::PartialUpdate);
+//    setUpdateBehavior(QOpenGLWidget::PartialUpdate);
     startTimer(16);
 }
 
@@ -23,6 +23,9 @@ Widget::~Widget()
 void Widget::initializeGL()
 {
     initializeOpenGLFunctions();
+    glEnable(GL_DEPTH_TEST);
+    glDepthRangef(0,  -1);
+//    glEnable(GL_CULL_FACE);
     m_shaderProgram = new QOpenGLShaderProgram(this);
     m_shaderProgram->addShaderFromSourceFile(QOpenGLShader::Vertex, ":/hellotexture.vert");
     m_shaderProgram->addCacheableShaderFromSourceFile(QOpenGLShader::Fragment, ":/hellotexture.frag");
@@ -43,9 +46,8 @@ void Widget::initializeGL()
 
 void Widget::paintGL()
 {
-    glViewport(0, 0, width(), height());
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.05f, 0.06f, 0.07f, 1);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     m_shaderProgram->bind();
 
     float rat = m_img.size().height() * 1.0f / m_img.size().width();
@@ -88,8 +90,9 @@ void Widget::paintGL()
 
 void Widget::resizeGL(int w, int h)
 {
+    glViewport(0, 0, width(), height());
     m_projective = QMatrix4x4();
-    m_projective.perspective(60, float(w * 1.0 / h), 0, 1000.0);
+    m_projective.perspective(60, float(w * 1.0 / h), 0, 10000000.0);
     m_shaderProgram->setUniformValue(m_projectiveUniform, m_projective);
 }
 

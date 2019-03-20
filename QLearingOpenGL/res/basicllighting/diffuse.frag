@@ -19,4 +19,5 @@ void main(void)
     vec3 result = min((ambient + diffuse), vec3(1, 1, 1)) * objectColor;
 
     gl_FragColor = vec4(result, 1);
+//    gl_FragColor = vec4(fragPos.z);
 }

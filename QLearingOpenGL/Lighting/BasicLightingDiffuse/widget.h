@@ -34,6 +34,8 @@ private:
     int m_lightColorUniform;
     int m_objectColorUniform;
 
+    void makeObj();
+
     QOpenGLShaderProgram* m_shaderProgram;
     QMatrix4x4 m_view;
     QMatrix4x4 m_model;
@@ -41,8 +43,8 @@ private:
     Camera* m_camera;
     QPoint m_LastMousePos;
     QList<int> m_pressedKeys;
-    QOpenGLVertexArrayObject* m_vao;
     QOpenGLBuffer* m_vbo;
+    QOpenGLVertexArrayObject* m_vao;
 };
 
 #endif // WIDGET_H

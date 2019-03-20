@@ -1,4 +1,4 @@
-attribute vec4 vertex;
+attribute vec3 vertex;
 attribute vec3 aNormal;
 
 uniform mat4 view;
@@ -10,7 +10,7 @@ varying vec3 normal;
 
 void main(void)
 {
-    fragPos = vec3(model * vertex);
+    fragPos = vec3(model * vec4(vertex, 1.0));
     normal = aNormal;
-    gl_Position = projective * model * view * vertex;
+    gl_Position = projective * model * view * vec4(vertex, 1.0);
 }
