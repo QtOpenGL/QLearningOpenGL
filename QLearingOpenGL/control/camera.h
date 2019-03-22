@@ -43,6 +43,8 @@ public:
     // Returns the view matrix calculated using Euler Angles and the LookAt Matrix
     QMatrix4x4 getViewMatrix();
 
+    QVector3D position();
+
     // Processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
     void processKeyBoard(Camera_Movement direction, float deltaTime);
 

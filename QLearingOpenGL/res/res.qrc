@@ -9,5 +9,7 @@
         <file>basicllighting/diffuse.vert</file>
         <file>getstarted/cube.frag</file>
         <file>getstarted/cube.vert</file>
+        <file>basicllighting/specular.frag</file>
+        <file>basicllighting/specular.vert</file>
     </qresource>
 </RCC>

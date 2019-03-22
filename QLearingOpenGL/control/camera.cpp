@@ -38,6 +38,11 @@ QMatrix4x4 Camera::getViewMatrix()
     return mat;
 }
 
+QVector3D Camera::position()
+{
+    return this->Position;
+}
+
 void Camera::processKeyBoard(Camera_Movement direction, float deltaTime)
 {
     float velocity = m_movementSpeed * deltaTime;
